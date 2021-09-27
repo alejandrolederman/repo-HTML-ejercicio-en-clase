@@ -1,7 +1,9 @@
 const express = require ("express");
 const server = express();
 const path = require("path");
-const publiPath = path.resolve(__dirname, "/public")
+
+const publiPath = path.resolve(__dirname,"./public");
+
 
 server.use(express.static(publiPath))
 
@@ -9,7 +11,7 @@ server.listen (3030, ()=>{
     console.log ("el servidor inicio")
 })
 
-let BABBAGE_PAGE = "/Views/babbage.html";
+let BABBAGE_PAGE = "./Views/babbage.html";
 let INDEX_PAGE = "/Views/index.html";
 let BERNERSLEE_PAGE = "/Views/erners-lee.html";
 let CLARKE_PAGE = "/Views/clarke.html";
@@ -25,7 +27,7 @@ server.get("/", (req, res)=>{
         res.sendFile(path.join(__dirname, INDEX_PAGE))})
 
 server.get("/babbage", (req, res)=>{
-    res.sendFile(path.join(__dirname, BABBAGE_PAGE))})
+    res.sendFile(path.resolve(__dirname, BABBAGE_PAGE))})
     
 server.get("/berners-lee", (req, res)=>{
     res.sendFile(path.join(__dirname, BERNERSLEE_PAGE))})     
