@@ -1,8 +1,9 @@
 const express = require ("express");
 const server = express();
 const path = require("path");
+const publiPath = path.resolve(__dirname, "/public")
 
-server.use("/public",express.static("public"))
+server.use(express.static(publiPath))
 
 server.listen (3030, ()=>{
     console.log ("el servidor inicio")
